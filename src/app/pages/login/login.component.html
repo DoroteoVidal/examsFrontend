@@ -20,7 +20,7 @@
                         </mat-form-field>
                         <br><br>
                         <div class="container text-center">
-                            <button mat-raised-button color="primary">Iniciar session</button>
+                            <button mat-raised-button color="primary" [disabled]="isLoggingIn">Iniciar session</button>
                             <button type="reset" style="margin-left:20px;" mat-raised-button color="accent">Limpiar</button>
                         </div>
                     </form>
