@@ -13,8 +13,8 @@ export class LoginComponent implements OnInit {
   isLoggingIn = false;
 
   loginData = {
-    "email" : '',
-    "password" : ''
+    'email' : '',
+    'password' : ''
   }
 
   constructor(private snack : MatSnackBar, private loginService : LoginService, private router : Router) { }
@@ -32,11 +32,11 @@ export class LoginComponent implements OnInit {
           this.loginService.setUser(user);
           console.log(user);
 
-          if(this.loginService.getUserRole() == "ADMIN") {
+          if(this.loginService.getUserRole() == 'ADMIN') {
             //window.location.href = "/admin";
             this.router.navigate(['admin']);
             this.loginService.loginStatusSubject.next(true);
-          }else if(this.loginService.getUserRole() == "USER") {
+          }else if(this.loginService.getUserRole() == 'USER') {
             //window.location.href = "/user-dashboard";
             this.router.navigate(['user-dashboard']);
             this.loginService.loginStatusSubject.next(true);
@@ -47,11 +47,11 @@ export class LoginComponent implements OnInit {
       }, (error) => {
         console.log(error);
         if (error.status === 401) {
-          this.snack.open("Invalid email or password", "Accept", {
+          this.snack.open('Invalid email or password', 'Accept', {
             duration: 3000,
           });
         } else {
-          this.snack.open("An unexpected error occurred", "Accept", {
+          this.snack.open('An unexpected error occurred', 'Accept', {
             duration: 3000,
           });
         }

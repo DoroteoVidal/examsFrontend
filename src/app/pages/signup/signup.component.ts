@@ -26,7 +26,7 @@ export class SignupComponent implements OnInit {
   formSubmit() {
     console.log(this.user);
     if(this.user.username == '' || this.user.username == null) {
-      this.snack.open("Username is required !!", "Accept", {
+      this.snack.open('Username is required !!', 'Accept', {
         duration : 3000,
         verticalPosition : 'top',
         horizontalPosition : 'right'
@@ -41,7 +41,7 @@ export class SignupComponent implements OnInit {
         Swal.fire('User saved', 'User saved successfully', 'success');
       }, (error) => {
         console.log(error);
-        this.snack.open("An error has occurred in the system", "Accept", {
+        this.snack.open('An error has occurred in the system', 'Accept', {
           duration : 3000
         });
       }
