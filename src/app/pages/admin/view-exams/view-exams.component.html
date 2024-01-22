@@ -1,0 +1,20 @@
+<mat-card class="mt10" *ngFor="let e of exams">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{ e.title }}</mat-card-title>
+        <mat-card-subtitle>{{ e.category.title }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-card-actions>
+            <button mat-flat-button color="primary">Questions</button>
+            <button mat-stroked-button color="primary" class="ml20">Max points {{ e.maxPoints }} </button>
+            <button mat-stroked-button color="primary" class="ml20">Questions {{ e.numberOfQuestions }} </button>
+            <button mat-flat-button color="primary" class="ml20">Refresh</button>
+            <button mat-flat-button color="primary" class="ml20">Attempts</button>
+            <button mat-flat-button color="warn" class="ml10" (click)="deleteExam(e.id)">Delete</button>
+        </mat-card-actions>
+    </mat-card-content>
+</mat-card>
+<div class="container text-center mt20">
+    <button routerLink="/admin/add-exam" mat-raised-button color="primary">Add exam</button>
+</div>
