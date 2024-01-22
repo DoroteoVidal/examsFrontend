@@ -32,6 +32,7 @@ import { ViewCategoriesComponent } from './pages/admin/view-categories/view-cate
 import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
 import { ViewExamsComponent } from './pages/admin/view-exams/view-exams.component';
 import { AddExamComponent } from './pages/admin/add-exam/add-exam.component';
+import { UpdateExamComponent } from './pages/admin/update-exam/update-exam.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { AddExamComponent } from './pages/admin/add-exam/add-exam.component';
     ViewCategoriesComponent,
     AddCategoryComponent,
     ViewExamsComponent,
-    AddExamComponent
+    AddExamComponent,
+    UpdateExamComponent
   ],
   imports: [
     BrowserModule,

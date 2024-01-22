@@ -13,6 +13,7 @@ import { ViewCategoriesComponent } from './pages/admin/view-categories/view-cate
 import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
 import { ViewExamsComponent } from './pages/admin/view-exams/view-exams.component';
 import { AddExamComponent } from './pages/admin/add-exam/add-exam.component';
+import { UpdateExamComponent } from './pages/admin/update-exam/update-exam.component';
 
 const routes: Routes = [
   {
@@ -58,6 +59,10 @@ const routes: Routes = [
       {
         path : 'add-exam',
         component : AddExamComponent
+      },
+      {
+        path : 'exams/:id',
+        component : UpdateExamComponent
       }
     ]
   },

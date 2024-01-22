@@ -9,8 +9,8 @@
             <button mat-flat-button color="primary">Questions</button>
             <button mat-stroked-button color="primary" class="ml20">Max points {{ e.maxPoints }} </button>
             <button mat-stroked-button color="primary" class="ml20">Questions {{ e.numberOfQuestions }} </button>
-            <button mat-flat-button color="primary" class="ml20">Refresh</button>
-            <button mat-flat-button color="primary" class="ml20">Attempts</button>
+            <button [routerLink]="'/admin/exams/'+e.id" mat-flat-button color="primary" class="ml20">Update</button>
+            <button mat-flat-button color="primary" class="ml10">Attempts</button>
             <button mat-flat-button color="warn" class="ml10" (click)="deleteExam(e.id)">Delete</button>
         </mat-card-actions>
     </mat-card-content>

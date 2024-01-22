@@ -1,36 +1,36 @@
 <mat-card>
-    <h1>Add new exam</h1>
+    <h1>Update exam</h1>
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <form (ngSubmit)="addExam()">
+            <form *ngIf="exam" (submit)="updateExam()">
                 <mat-form-field class="w100" appearance="outline">
                     <mat-label>Title</mat-label>
-                    <input [(ngModel)]="examData.title" type="text" name="title" placeholder="Enter the exam title" required matInput>
+                    <input [(ngModel)]="exam.title" type="text" name="title" placeholder="Enter the exam title" required matInput>
                 </mat-form-field>
                 <mat-form-field class="w100" appearance="outline">
                     <mat-label>Description</mat-label>
-                    <textarea [(ngModel)]="examData.description" name="description" placeholder="Enter the exam description" rows="8" matInput></textarea>
+                    <textarea [(ngModel)]="exam.description" name="description" placeholder="Enter the exam description" rows="8" matInput></textarea>
                 </mat-form-field>
                 <div class="row">
                     <div class="col-md-6">
                         <mat-form-field class="w100" appearance="outline">
                             <mat-label>Max points</mat-label>
-                            <input [(ngModel)]="examData.maxPoints" type="text" name="maxPoints" placeholder="Enter the number of exam points" matInput>
+                            <input [(ngModel)]="exam.maxPoints" type="text" name="maxPoints" placeholder="Enter the number of exam points" matInput>
                         </mat-form-field>
                     </div>
                     <div class="col-md-6">
                         <mat-form-field class="w100" appearance="outline">
                             <mat-label>Number of questions</mat-label>
-                            <input [(ngModel)]="examData.numberOfQuestions" type="text" name="numberOfQuestions" placeholder="Enter the number of exam questions" matInput>
+                            <input [(ngModel)]="exam.numberOfQuestions" type="text" name="numberOfQuestions" placeholder="Enter the number of exam questions" matInput>
                         </mat-form-field>
                     </div>
                 </div>
-                <mat-slide-toggle [(ngModel)]="examData.active" name="active" class="mt20" color="primary">
+                <mat-slide-toggle [(ngModel)]="exam.active" name="active" class="mt20" color="primary">
                     Publication status
                 </mat-slide-toggle>
                 <mat-form-field appearance="outline" class="mt20 w100">
                     <mat-label>Categories</mat-label>
-                    <mat-select [(ngModel)]="examData.category.id" name="category">
+                    <mat-select [(ngModel)]="exam.category.id" name="category">
                         <mat-option *ngFor="let c of categories" [value]="c.id">
                             {{ c.title }}
                         </mat-option>
