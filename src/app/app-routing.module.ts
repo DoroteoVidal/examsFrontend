@@ -14,6 +14,9 @@ import { AddCategoryComponent } from './pages/admin/add-category/add-category.co
 import { ViewExamsComponent } from './pages/admin/view-exams/view-exams.component';
 import { AddExamComponent } from './pages/admin/add-exam/add-exam.component';
 import { UpdateExamComponent } from './pages/admin/update-exam/update-exam.component';
+import { ViewExamQuestionsComponent } from './pages/admin/view-exam-questions/view-exam-questions.component';
+import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
+import { UpdateQuestionComponent } from './pages/admin/update-question/update-question.component';
 
 const routes: Routes = [
   {
@@ -63,6 +66,18 @@ const routes: Routes = [
       {
         path : 'exams/:id',
         component : UpdateExamComponent
+      },
+      {
+        path : 'view-questions/exam/:id/:title',
+        component : ViewExamQuestionsComponent
+      },
+      {
+        path : 'add-question/exam/:id/:title',
+        component : AddQuestionComponent
+      },
+      {
+        path : 'questions/:id',
+        component : UpdateQuestionComponent
       }
     ]
   },

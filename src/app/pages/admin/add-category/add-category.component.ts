@@ -24,7 +24,7 @@ export class AddCategoryComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  formSubmit() {
+  addCategory() {
     if(this.category.title.trim() == '' || this.category.title == null) {
       this.snack.open('Title is required', '',  {
         duration : 3000
@@ -36,8 +36,8 @@ export class AddCategoryComponent implements OnInit {
       (data : any) => {
         this.category.title == '';
         this.category.description == '',
-        Swal.fire('Added category', 'The category has been added successfully', 'success');
-        this.router.navigate(['/admin/categories'])
+        Swal.fire('Saved category', 'The category has been saved successfully', 'success');
+        this.router.navigate(['/admin/categories']);
       },
       (error) => {
         console.log(error);

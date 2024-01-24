@@ -6,7 +6,7 @@
     </mat-card-header>
     <mat-card-content>
         <mat-card-actions>
-            <button mat-flat-button color="primary">Questions</button>
+            <button [routerLink]="'/admin/view-questions/exam/'+e.id+'/'+e.title" mat-flat-button color="primary">Questions</button>
             <button mat-stroked-button color="primary" class="ml20">Max points {{ e.maxPoints }} </button>
             <button mat-stroked-button color="primary" class="ml20">Questions {{ e.numberOfQuestions }} </button>
             <button [routerLink]="'/admin/exams/'+e.id" mat-flat-button color="primary" class="ml20">Update</button>

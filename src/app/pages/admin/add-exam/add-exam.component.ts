@@ -56,7 +56,7 @@ export class AddExamComponent implements OnInit {
     this.examService.addExam(this.examData).subscribe(
       (data : any) => {
         console.log(data);
-        Swal.fire('Added exam', 'The exam has been added successfully', 'success');
+        Swal.fire('Saved exam', 'The exam has been saved successfully', 'success');
         this.examData = {
           title : '',
           description : '',
@@ -67,7 +67,7 @@ export class AddExamComponent implements OnInit {
             id : ''
           }
         }
-        this.router.navigate(['/admin/exams'])
+        this.router.navigate(['/admin/exams']);
       },
       (error) => {
         Swal.fire('Error !!', 'Error when saving exam', 'error');

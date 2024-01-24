@@ -25,7 +25,7 @@ export class ExamService {
     return this.http.get(`${baserUrl}/exams/${id}`);
   }
 
-  public updateExam(exam : any, id : any) {
+  public updateExam(id : any, exam : any) {
     return this.http.put(`${baserUrl}/exams/${id}`, exam);
   }
 

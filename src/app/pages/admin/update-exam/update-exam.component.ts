@@ -44,7 +44,7 @@ export class UpdateExamComponent implements OnInit {
   }
 
   updateExam() {
-    this.examService.updateExam(this.exam, this.id).subscribe(
+    this.examService.updateExam(this.id, this.exam).subscribe(
       (data : any) => {
         Swal.fire('Updated exam', 'The exam has been updated successfully', 'success').then(
           (e) => {

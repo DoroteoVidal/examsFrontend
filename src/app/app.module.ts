@@ -33,6 +33,9 @@ import { AddCategoryComponent } from './pages/admin/add-category/add-category.co
 import { ViewExamsComponent } from './pages/admin/view-exams/view-exams.component';
 import { AddExamComponent } from './pages/admin/add-exam/add-exam.component';
 import { UpdateExamComponent } from './pages/admin/update-exam/update-exam.component';
+import { ViewExamQuestionsComponent } from './pages/admin/view-exam-questions/view-exam-questions.component';
+import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
+import { UpdateQuestionComponent } from './pages/admin/update-question/update-question.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,10 @@ import { UpdateExamComponent } from './pages/admin/update-exam/update-exam.compo
     AddCategoryComponent,
     ViewExamsComponent,
     AddExamComponent,
-    UpdateExamComponent
+    UpdateExamComponent,
+    ViewExamQuestionsComponent,
+    AddQuestionComponent,
+    UpdateQuestionComponent
   ],
   imports: [
     BrowserModule,
