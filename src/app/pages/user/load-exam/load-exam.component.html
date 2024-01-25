@@ -1,0 +1,32 @@
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+        <h1>Exams available</h1>
+        <div class="row mt20" *ngIf="exams">
+            <div class="col-md-6" *ngFor="let e of exams">
+                <mat-card class="mb20">
+                    <mat-card-header>
+                        <div mat-card-avatar class="example-header-image"></div>
+                        <mat-card-title>{{ e.title }}</mat-card-title>
+                        <mat-card-subtitle>{{ e.category.title }}</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>{{ e.description }}</p>
+                    </mat-card-content>          
+                    <mat-card-actions>
+                        <button mat-button color="primary">View</button>
+                        <button mat-button style="color: rgb(58, 168, 58);">Start</button>
+                        <button mat-button style="color: rgb(90, 95, 90);">Questions {{ e.numberOfQuestions }}</button>
+                        <button mat-button style="color: rgb(90, 95, 90);">Max points {{ e.maxPoints }}</button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+            <div class="col-md-12" *ngIf="exams.length == 0">
+                <mat-card>
+                    <mat-card-content>
+                        <h1>There are no exams in this category</h1>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

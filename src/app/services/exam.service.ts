@@ -29,4 +29,16 @@ export class ExamService {
     return this.http.put(`${baserUrl}/exams/${id}`, exam);
   }
 
+  public getCategoryExams(id : any) {
+    return this.http.get(`${baserUrl}/exams/category/${id}`);
+  }
+
+  public getActiveExams() {
+    return this.http.get(`${baserUrl}/exams/active`);
+  }
+
+  public getActiveExamsOfCategory(id : any) {
+    return this.http.get(`${baserUrl}/exams/category/active/${id}`);
+  }
+
 }
