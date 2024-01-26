@@ -42,7 +42,7 @@
                         </div>
                         <mat-form-field class="w100" appearance="outline">
                             <mat-label>Select the answer</mat-label>
-                            <mat-select [(ngModel)]="question.answer" name="answer">
+                            <mat-select [(ngModel)]="question.correctAnswer" name="answer">
                                 <mat-option *ngIf="question.option1" [value]="question.option1">{{ question.option1 }}</mat-option>
                                 <mat-option *ngIf="question.option2" [value]="question.option2">{{ question.option2 }}</mat-option>
                                 <mat-option *ngIf="question.option3" [value]="question.option3">{{ question.option3 }}</mat-option>

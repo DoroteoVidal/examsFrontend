@@ -12,9 +12,9 @@
                     <mat-card-content>
                         <p>{{ e.description }}</p>
                     </mat-card-content>          
-                    <mat-card-actions>
+                    <mat-card-actions class="display-sb">
                         <button mat-button color="primary">View</button>
-                        <button mat-button style="color: rgb(58, 168, 58);">Start</button>
+                        <button mat-button [routerLink]="'/user-dashboard/instructions/'+e.id" style="color: rgb(58, 168, 58);">Start</button>
                         <button mat-button style="color: rgb(90, 95, 90);">Questions {{ e.numberOfQuestions }}</button>
                         <button mat-button style="color: rgb(90, 95, 90);">Max points {{ e.maxPoints }}</button>
                     </mat-card-actions>

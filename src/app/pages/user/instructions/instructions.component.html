@@ -1,0 +1,41 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <mat-card class="mt20">
+                    <mat-card-header>
+                        <mat-card-title>Read the instructions on this page carefully</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-subtitle>One more step to go</mat-card-subtitle>
+                    <mat-card-content class="ml30">
+                        <h1>{{ exam.title }}</h1>
+                        <p>{{ exam.description }}</p>      
+                        <mat-divider></mat-divider>
+                        <br>
+                        <h1>Important instructions</h1>
+                        <ul>
+                            <li>This exam is for practice purposes only</li>
+                            <li>You have to send the exam in <b>{{ exam.numberOfQuestions * 2 }} minutes</b></li>
+                            <li>You can try the exam as many times as you want</li>
+                            <li>There are <b>{{ exam.maxPoints/exam.numberOfQuestions }} points per question</b></li>
+                        </ul>
+                        <mat-divider></mat-divider>
+                        <br>
+                        <h1>Test attempts</h1>
+                        <ul>
+                            <li>Press the <b>Start</b> button to start exam</li>
+                            <li>The time starts the moment you click the start button</li>
+                            <li>You cannot resume this exam if it is interrupted for any reason</li>
+                            <li>Scroll down to go to next question</li>
+                            <li>Click the submit exam button when you are done</li>
+                            <li>The exam report is automatically generated in a PDF file</li>
+                        </ul>
+                    </mat-card-content>
+                    <mat-card-actions class="text-center mb20">
+                        <button (click)="startExam()" mat-raised-button color="primary">Start exam</button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

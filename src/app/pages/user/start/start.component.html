@@ -1,0 +1,64 @@
+<div class="bootstrap-wrapper" *ngIf="!isSent">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <!--Instructions-->
+                <h3>Instructions</h3>
+            </div>
+            <div class="col-md-8">
+                <!--Questions-->
+                <ng-container *ngIf="questions">
+                    <h1 class="mt20">In progress <b>{{ questions[0].exam.title }}</b></h1>
+                </ng-container>
+                <mat-card *ngFor="let q of questions; let i = index">
+                    <mat-card-content>
+                        <p><b>{{ i+1 }}) </b><span [innerHTML]="q.content">{{ q.content }}</span></p>
+                        <mat-divider></mat-divider>
+                        <div class="row mt20">
+                            <div class="col-md-7 mt10">
+                                <input [(ngModel)]="q.answer" type="radio" [value]="q.option1" name={{i}}> {{ q.option1 }}
+                            </div>
+                            <div class="col-md-7 mt10">
+                                <input [(ngModel)]="q.answer" type="radio" [value]="q.option2" name={{i}}> {{ q.option2 }}
+                            </div>
+                            <div class="col-md-7 mt10">
+                                <input [(ngModel)]="q.answer" type="radio" [value]="q.option3" name={{i}}> {{ q.option3 }}
+                            </div>
+                            <div class="col-md-7 mt10">
+                                <input [(ngModel)]="q.answer" type="radio" [value]="q.option4" name={{i}}> {{ q.option4 }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6"></div>
+                            <div class="col-md-6"></div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+                <div class="container text-center mt20 mb20">
+                    <button (click)="sendExam()" mat-raised-button color="primary">Send exam</button>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <!--Progress-->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bootstrap-wrapper" *ngIf="isSent">
+    <div class="row mt20">
+        <div class="col-md-6 offset-md-3">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>Exam result</mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="text-center">
+                    <h1>Points achieved : {{ pointsAchieved }}</h1>
+                    <h1>Correct answers : {{ correctAnswers }}</h1>
+                </mat-card-content>
+                <mat-card-actions class="text-center">
+                    <button mat-raised-button color="primary">Print</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>

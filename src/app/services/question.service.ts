@@ -29,4 +29,8 @@ export class QuestionService {
     return this.http.get(`${baserUrl}/questions/${id}`);
   }
 
+  public listQuestionsForExam(id : any) {
+    return this.http.get(`${baserUrl}/questions/exam/all/${id}`);
+  }
+
 }

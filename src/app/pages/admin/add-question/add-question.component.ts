@@ -20,7 +20,7 @@ export class AddQuestionComponent implements OnInit {
     option2 : '',
     option3 : '',
     option4 : '',
-    answer : ''
+    correctAnswer : ''
   }
 
   constructor(
@@ -50,7 +50,7 @@ export class AddQuestionComponent implements OnInit {
     if(this.question.option4.trim() == '' || this.question.option4 == null) {
       return;
     }
-    if(this.question.answer.trim() == '' || this.question.answer == null) {
+    if(this.question.correctAnswer.trim() == '' || this.question.correctAnswer == null) {
       return;
     }
 
@@ -62,7 +62,7 @@ export class AddQuestionComponent implements OnInit {
         this.question.option2 = '';
         this.question.option3 = '';
         this.question.option4 = '';
-        this.question.answer = '';
+        this.question.correctAnswer = '';
         this.router.navigate([`/admin/view-questions/exam/${this.id}/${this.title}`]);
       },
       (error) => {

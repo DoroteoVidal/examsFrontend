@@ -18,6 +18,8 @@ import { ViewExamQuestionsComponent } from './pages/admin/view-exam-questions/vi
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
 import { UpdateQuestionComponent } from './pages/admin/update-question/update-question.component';
 import { LoadExamComponent } from './pages/user/load-exam/load-exam.component';
+import { InstructionsComponent } from './pages/user/instructions/instructions.component';
+import { StartComponent } from './pages/user/start/start.component';
 
 const routes: Routes = [
   {
@@ -91,8 +93,19 @@ const routes: Routes = [
         //Id de categoria
         path : ':id',
         component : LoadExamComponent
-      }
+      },
+      {
+        //Id de examen
+        path : 'instructions/:id',
+        component : InstructionsComponent
+      },
     ]
+  },
+  {
+    //Id de examen
+    path : 'start/:id',
+    component : StartComponent,
+    canActivate : [UserGuard]
   }
 ];
 
