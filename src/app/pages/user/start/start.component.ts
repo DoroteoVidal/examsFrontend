@@ -19,6 +19,7 @@ export class StartComponent implements OnInit {
   attempts = 0;
 
   isSent = false;
+  timer : any;
 
   constructor(
     private location : LocationStrategy,
@@ -36,16 +37,29 @@ export class StartComponent implements OnInit {
       (data : any) => {
         console.log(data);
         this.questions = data;
+        this.timer = this.questions.length * 2 * 60;
         this.questions.forEach((q : any) => {
           q['answer'] = '';
         });
         console.log(this.questions);
+        this.initTimer();
       },
       (error) => {
         console.log(error);
         Swal.fire('Error !!', 'Error loading exam questions', 'error');
       }
     )
+  }
+
+  initTimer() {
+    let time = window.setInterval(() => {
+      if(this.timer <= 0) {
+        this.evaluateExam();
+        clearInterval(time);
+      }else {
+        this.timer--;
+      }
+    },1000)
   }
 
   preventBackButton() {
@@ -64,23 +78,51 @@ export class StartComponent implements OnInit {
       cancelButtonText : 'Cancel'
     }).then((result) => {
       if(result.isConfirmed) {
-        this.isSent = true;
-        this.questions.forEach((q : any) => {
-          if(q.answer == q.correctAnswer) {
-            this.correctAnswers++;
-            let points = this.questions[0].exam.maxPoints/this.questions.length;
-            this.pointsAchieved += points;
-          }
-          if(q.answer.trim() != '') {
-            this.attempts++;
-          }
-        })
-        console.log("Correct answers :" + this.correctAnswers);
-        console.log("Points achieved :" + this.pointsAchieved);
-        console.log("Attempts :" + this.attempts);
-        console.log(this.questions);
+        this.evaluateExam();
       }
     })
+  }
+
+  evaluateExam() {
+    this.questionService.evaluateExam(this.questions).subscribe(
+      (data : any) => {
+        console.log(data);
+        this.pointsAchieved = data.maxPoints;
+        this.correctAnswers = data.correctAnswers;
+        this.attempts = data.attempts;
+        this.isSent = true;
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
+
+    //Evaluacion frontend
+    /*this.isSent = true;
+    this.questions.forEach((q : any) => {
+      if(q.answer == q.correctAnswer) {
+        this.correctAnswers++;
+        let points = this.questions[0].exam.maxPoints/this.questions.length;
+        this.pointsAchieved += points;
+      }
+      if(q.answer.trim() != '') {
+        this.attempts++;
+      }
+    })
+    console.log("Correct answers :" + this.correctAnswers);
+    console.log("Points achieved :" + this.pointsAchieved);
+    console.log("Attempts :" + this.attempts);
+    console.log(this.questions);*/
+  }
+
+  getFormattedTime() {
+    let mm = Math.floor(this.timer/60);
+    let ss = this.timer - mm * 60;
+    return `${mm} : min : ${ss} : seg`;
+  }
+
+  printPage() {
+    window.print();
   }
 
 }

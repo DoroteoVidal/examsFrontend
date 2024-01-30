@@ -33,4 +33,8 @@ export class QuestionService {
     return this.http.get(`${baserUrl}/questions/exam/all/${id}`);
   }
 
+  public evaluateExam(questions : any) {
+    return this.http.post(`${baserUrl}/questions/evaluate-exam`, questions);
+  }
+
 }

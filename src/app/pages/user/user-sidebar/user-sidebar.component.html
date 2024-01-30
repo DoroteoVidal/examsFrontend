@@ -5,7 +5,7 @@
             <mat-icon mat-list-icon>quiz</mat-icon> Exams
         </button>
         <button [routerLink]="'/user-dashboard/'+c.id" mat-list-item *ngFor="let c of categories">
-            <mat-icon mat-list-icon>account_circle</mat-icon> {{ c.title }}
+            <mat-icon mat-list-icon>description</mat-icon> {{ c.title }}
         </button>
     </mat-action-list>
 </mat-card>
