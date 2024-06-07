@@ -22,11 +22,18 @@
         Log out
     </a>
     <button
-        *ngIf="isLoggedIn && user"
+        *ngIf="isLoggedIn && user.authorities[0].authority == 'ADMIN'"
         mat-button
         style="margin-right: 10px;"
         class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
         routerLink="/admin/profile"><mat-icon mat-list-icon>person</mat-icon>
+        {{ user.username }}
+    </button>
+    <button
+        *ngIf="isLoggedIn && user.authorities[0].authority == 'USER'"
+        mat-button
+        style="margin-right: 10px;"
+        class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"><mat-icon mat-list-icon>person</mat-icon>
         {{ user.username }}
     </button>
 </mat-toolbar>
